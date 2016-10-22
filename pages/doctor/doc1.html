@@ -7,6 +7,15 @@
     <title>Doctor View - Patient Informtaion</title>
     <link rel="stylesheet" href="../../css/style.css">
 </head>
+<style>
+    .med-list{
+        margin-left:-30px;
+        margin-top: 20px:
+    }
+    .show-inline{
+        display: inline;
+    }
+</style>
 <body>
 <nav class="navbar navbar-default">
     <div class="container-fluid">
@@ -30,7 +39,7 @@
         <div class="form-horizontal col-sm-12">
             <label for="patient-list" class="col-sm-2 control-label">Patient's Name:</label>
             <div class="col-sm-3">
-                <select class="form-control" id="patient-list">
+                <select class="" id="patient-list">
                     <option selected>Doe, Jane</option>
                     <option>Doe, John</option>
                     <option>Johnson, Edward</option>
@@ -39,12 +48,12 @@
             </div>
         </div>
         <br><br>
-        <hr>
+
         <div id="patient-emr" class="col-sm-12">
             <div id="patient-information">
-                <b>Name:</b>Jane Doe<br>
+                <b>Name:</b> Jane Doe<br>
                 <b>Date of Birth:</b> 11-06-1956 <br>
-               <b>Home Address:</b> 3057 Vega Ave Cleveland, OH 44113
+                <b>Home Address:</b> 3057 Vega Ave Cleveland, OH 44113
             </div>
             <div id="insurance-info">
                 <b>Insurance:</b>(Ded, Coins, and OV limits may apply)
@@ -68,7 +77,7 @@
                         <div class="col-sm-4">
                             <b>Office Visit:</b> $10, 5% <br>
                             <b>Specialist Visit:</b> 5% <br>
-                            <b>Deductible (Ind/Fam)</b> $1000
+                            <b>Deductible (Ind/Fam)</b> $1000 <br>
                             <b>OOP Maximum:</b> $1000 <br>
                             <b>Co-Insurance:</b> 5%, 10% <br>
                         </div>
@@ -83,9 +92,26 @@
                         </div>
                     </div>
                 </div>
-
             </div>
             <!-- End of INsurance info -->
+        </div>
+        <div>&nbsp;</div>
+        <div class="form-horizontal col-sm-12 med-list" id="">
+            <label for="current-med-list" class="col-sm-2 control-label">Current Medication:</label>
+            <div class="col-sm-3">
+                <select class="form-control" id="current-med-list">
+                    <option>Lisinopril 25mg 2x daily</option>
+                    <option>Amlodipine 5mg daily</option>
+                    <option>Lipitor 10mg daily</option>
+                </select>
+            </div>
+        </div>
+        <div>&nbsp;</div>
+        <div class="form-horizontal col-sm-12 med-list" id="">
+            <label for="new-med" class="col-sm-2 control-label">Add Medication:</label>
+            <div class="col-sm-3 show-inline">
+                <input type="text" class="form-control " id="new-med" placeholder="Add new Medication">
+            </div>
         </div>
         <form method="post" action="#">
         </form>
