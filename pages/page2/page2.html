@@ -4,12 +4,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Title</title>
+    <title>Patient Information</title>
     <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="../../scripts/script.js"></script>
+<div class="container-fluid">
+    <div class="jumbotron">
+        <div class="h1 text-center">Meds-2-Me</div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <form method="post" action="#" class="form-horizontal">
+            <div class="form-group">
+                <label for="name" class="col-sm-2 control-label">Name:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control input-width" id="name" placeholder="Enter in your name"
+                           required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="address" class="col-sm-2 control-label">Address:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control input-width" id="address" placeholder="Enter in your address"
+                           required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="address" class="col-sm-2 control-label">City:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control input-width" id="address" placeholder="Enter in your city"
+                           required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="state" class="col-sm-2 control-label">State:</label>
+                <div class="col-sm-10">
+                    <input type="text" maxlength="2" class="form-control" id="state" placeholder="OH" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="zip-code" class="col-sm-2 control-label">Zip Code:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control input-width" id="zip-code" placeholder="Enter in your Zip Code"
+                           required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="day">Date of Birth:</label>
+                <div id="date1" class="datefield col-sm-2">
+                    <input id="day" type="tel" maxlength="2" placeholder="DD"/> /
+                    <input id="month" type="tel" maxlength="2" placeholder="MM"/>/
+                    <input id="year" type="tel" maxlength="4" placeholder="YYYY"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="insurance-id" class="col-sm-2 control-label">Insurance ID:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control input-width" id="insurance-id"
+                           placeholder="Enter in your Insurance ID"
+                           required>
+                </div>
+            </div>
+            <div class="h3">Optional Information:</div>
+            <div class="form-group">
+                <label for="pcp" class="col-sm-2 control-label">Primary Care Physcian:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control input-width" id="pcp"
+                           placeholder="Enter in your Primary Care Physcian">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="pharmacy" class="col-sm-2 control-label">Preferred Pharmacy:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control input-width" id="pharmacy"
+                           placeholder="Enter in your Preferred Pharmacy:">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="hospital" class="col-sm-2 control-label">Preferred Hospital:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control input-width" id="hospital" placeholder="Enter in your Preferred Pharmacy:">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="med-record" class="col-sm-3 control-label">Link to Electronic Medical Record:</label>
+                <div class="col-sm-9">
+                    <input type="checkbox" class="" id="med-record">
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="../../scripts/script.js"></script>
 </body>
 </html>
