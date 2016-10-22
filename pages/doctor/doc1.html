@@ -1,16 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-<!------ Doctor Information -->
+<!------ Doctor Information Information -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Doctor View</title>
+    <title>Doctor View - Patient Informtaion</title>
     <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="">
+            <div class="navbar-brand"><a class="nounderline" href="#">Med-2-Me</a></div>
+            <ul class="nav navbar-nav navbar-right margin_right">
+                <li><a href="../../index.html" role="button"><i class="fa fa-home" aria-hidden="true">&nbsp;Home</i></a>
+                </li>
+                <li><a href="#"><i class="fa fa-sign-out" aria-hidden="true">&nbsp;Sign Out</i> </a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="jumbotron">
+    <div class="container">
+        <div class="h1 text-center">Doctor Patient View: Meds-2-Me</div>
+    </div>
+</div>
+<div class="container">
+    <div class="row col-sm-12">
+        <div class="form-horizontal col-sm-12">
+            <label for="patient-list" class="col-sm-2 control-label">Patient's Name:</label>
+            <div class="col-sm-3">
+                <select class="form-control" id="patient-list">
+                    <option selected>Doe, Jane</option>
+                    <option>Doe, John</option>
+                    <option>Johnson, Edward</option>
+                    <option>Smith, Sam</option>
+                </select>
+            </div>
+        </div>
+        <br><br>
+        <hr>
+        <div id="patient-emr" class="col-sm-12">
+            <div id="patient-information">
+                <b>Name:</b>Jane Doe<br>
+                <b>Date of Birth:</b> 11-06-1956 <br>
+               <b>Home Address:</b> 3057 Vega Ave Cleveland, OH 44113
+            </div>
+            <div id="insurance-info">
+                <b>Insurance:</b>(Ded, Coins, and OV limits may apply)
+                <div class="col-sm-12">
+                    <div class="col-sm-12">
+                        <div class="col-sm-4">
+                            <b>Insurance Name:</b> Anthem <br>
+                            <b>Plan:</b> 310 <br>
+                            <b>ID Number:</b> MX4597215 <br>
+                            <b>Expiration Date:</b> 08/12/2018 <br>
+                            <b>Contract No:</b> 4597 <br>
+                        </div>
+                        <div class="col-sm-3">
+                            <b>Rx Bin:</b> ER459 <br>
+                            <b>Px PCN:</b> 4891546 <br>
+                            <b>Rx Group: GWQ8</b>
+                        </div>
+                    </div>
+                    <div>&nbsp;</div>
+                    <div class="col-sm-12">
+                        <div class="col-sm-4">
+                            <b>Office Visit:</b> $10, 5% <br>
+                            <b>Specialist Visit:</b> 5% <br>
+                            <b>Deductible (Ind/Fam)</b> $1000
+                            <b>OOP Maximum:</b> $1000 <br>
+                            <b>Co-Insurance:</b> 5%, 10% <br>
+                        </div>
+                        <div class="col-sm-4">
+                            Rx Tiers:
+                            <div>
+                                <b>Tier 1:</b> 5%, 10% <br>
+                                <b>Tier 2:</b> 5%, 10% <br>
+                                <b>Tier 3:</b> 5%, 10% <br>
+                                <b>Tier 4:</b> 5%, 10% <br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="../../scripts/script.js"></script>
+            </div>
+            <!-- End of INsurance info -->
+        </div>
+        <form method="post" action="#">
+        </form>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="../../scripts/script.js"></script>
 </body>
 </html>
