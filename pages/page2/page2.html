@@ -65,9 +65,9 @@
             <div class="form-group">
                 <label class="col-sm-2 control-label" for="day">Date of Birth:</label>
                 <div id="date1" class="datefield col-sm-2">
-                    <input id="day" type="tel" maxlength="2" placeholder="DD"/> /
-                    <input id="month" type="tel" maxlength="2" placeholder="MM"/>/
-                    <input id="year" type="tel" maxlength="4" placeholder="YYYY"/>
+                    <input required id="day" type="tel" maxlength="2" placeholder="DD"/> /
+                    <input required id="month" type="tel" maxlength="2" placeholder="MM"/>/
+                    <input required id="year" type="tel" maxlength="4" placeholder="YYYY"/>
                 </div>
             </div>
             <div class="form-group">
@@ -81,7 +81,7 @@
             <div class="form-group">
                 <label for="hipaa" class="col-sm-3 control-label">I have read and agree with the HIPAA Patient Consent Form <a role="button" class="" data-toggle="modal" data-target="#myModal"><br>Read HIPPA Consent Form</a></label>
                 <div class="col-sm-9">
-                    <input type="checkbox" class="" id="hipaa">
+                    <input type="checkbox" class="" id="hipaa" required>
                 </div>
             </div>
             <div class="h3">Optional Information:</div>
@@ -112,7 +112,7 @@
                     <input type="checkbox" class="" id="med-record">
                 </div>
             </div>
-
+        <div><button type="submit" class="btn btn-primary">Create Account</button></div>
         </form>
     </div>
 </div>
