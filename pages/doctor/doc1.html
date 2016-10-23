@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Doctor View - Patient Informtaion</title>
     <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../scripts/chosen.css">
+
 </head>
 <style>
     .med-list{
@@ -14,6 +16,9 @@
     }
     .show-inline{
         display: inline;
+    }
+    .add-med-form{
+        margin-left: -20px;
     }
 </style>
 <body>
@@ -39,11 +44,11 @@
         <div class="form-horizontal col-sm-12">
             <label for="patient-list" class="col-sm-2 control-label">Patient's Name:</label>
             <div class="col-sm-3">
-                <select class="" id="patient-list">
-                    <option selected>Doe, Jane</option>
-                    <option>Doe, John</option>
-                    <option>Johnson, Edward</option>
-                    <option>Smith, Sam</option>
+                <select class="" data-placeholder="Select a Patient" id="patient-list">
+                    <option value="Doe, Jane" selected>Doe, Jane</option>
+                    <option value="Doe, John">Doe, John</option>
+                    <option value="Johnson, Edward">Johnson, Edward</option>
+                    <option value="Smith, Sam">Smith, Sam</option>
                 </select>
             </div>
         </div>
@@ -60,7 +65,7 @@
                 <div class="col-sm-12">
                     <div class="col-sm-12">
                         <div class="col-sm-4">
-                            <b>Insurance Name:</b> Anthem <br>
+                            <b>Insurance Name:</b> Medical Mutual <br>
                             <b>Plan:</b> 310 <br>
                             <b>ID Number:</b> MX4597215 <br>
                             <b>Expiration Date:</b> 08/12/2018 <br>
@@ -91,9 +96,17 @@
                             </div>
                         </div>
                     </div>
+                    <div>&nbsp;</div>
+                    <div class="col-sm-12">
+                        <div class="col-sm-6">
+                            <b>Diagnosis Code:</b><br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;A00.0 ‑ B99.9: Certain infectious and parasitic diseases (A00-B99). <br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;I00 ‑ I99.9: Diseases of the circulatory system (I00-I99).
+                        </div>
+                    </div>
                 </div>
             </div>
-            <!-- End of INsurance info -->
+            <!-- End of Insurance info -->
         </div>
         <div>&nbsp;</div>
         <div class="form-horizontal col-sm-12 med-list" id="">
@@ -106,19 +119,44 @@
                 </select>
             </div>
         </div>
-        <div>&nbsp;</div>
-        <div class="form-horizontal col-sm-12 med-list" id="">
-            <label for="new-med" class="col-sm-2 control-label">Add Medication:</label>
-            <div class="col-sm-3 show-inline">
-                <input type="text" class="form-control " id="new-med" placeholder="Add new Medication">
+        <form class="form-horizontal add-med-form" method="post" action="#">
+            <br>
+            <div class="form-group col-sm-12 med-list" id="">
+                <label for="new-med" class="col-sm-2 control-label">Add Medication:</label>
+                <div class="col-sm-5 show-inline">
+                    <select data-placeholder="Select a Medication" class="input-width" tabindex="2" class="" id="add-med-list">
+                        <option value=""></option>
+                        <option value="Amlodipine">Amlodipine</option>
+                        <option value="Amoxicillin">Amoxicillin</option>
+                        <option value="Amoxil">Amoxil</option>
+                        <option value="Hydrocodone/APAP">Hydrocodone/APAP</option>
+                        <option value="Levothyroxine">Levothyroxine</option>
+                        <option value="Lipitor">Lipitor</option>
+                        <option value="Lisinopril">Lisinopril</option>
+                        <option value="Synthroid">Synthroid</option>
+                        <option value="Vicodin">Vicodin</option>
+                    </select>
+                    <span id="auth-needed"></span>
+                </div>
             </div>
-        </div>
-        <form method="post" action="#">
         </form>
     </div>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="../../scripts/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js" type="application/javascript"></script>
+<script src="../../scripts/chosen.jquery.js" type="application/javascript"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="application/javascript"></script>
+<script src="../../scripts/script.js" type="application/javascript"></script>
+<script type="application/javascript">
+    $(function(){
+        $("#add-med-list").chosen();
+        $("#patient-list").chosen();
+        //$( "#add-med-list option:selected" ).text();
+        $("#add-med-list").click(function(){
+            if($( "#add-med-list option:selected" ).text()=== "Hydrocodone/APAP") {
+                $("#auth-needed").html("Prior Auth Needed");
+            }
+        })
+    });
+</script>
 </body>
 </html>
