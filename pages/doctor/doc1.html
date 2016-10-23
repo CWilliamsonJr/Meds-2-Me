@@ -40,6 +40,22 @@
     #auth-complete{
         display:none;
     }
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid black;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+
+
 </style>
 <body>
 <nav class="navbar navbar-default">
@@ -105,6 +121,7 @@
                             <b>Deductible (Ind/Fam)</b> $1000 <br>
                             <b>OOP Maximum:</b> $1000 <br>
                             <b>Co-Insurance:</b> 5%, 10% <br>
+                            <b>Health Savings Account Balance:</b> $2000
                         </div>
                         <div class="col-sm-4">
                             Rx Tiers:
@@ -183,6 +200,84 @@
                 <span id="auth-needed">Prior Authorization needed: Yes <span role="button" id="auth-btn" class="btn btn-primary"> Click to authorize</span><span id="auth-complete"></span>
             </div>
         </form>
+        <div id="area-pharmacies" class="">
+            <table>
+                <table>
+                    <tr>
+                        <th>Selected</th>
+                        <th>Distance</th>
+                        <th>Pharmacy</th>
+                        <th>Address</th>
+                        <th>Phone No.</th>
+                        <th>Fax No.</th>
+                        <th>Electronic Record Transfer</th>
+                        <th>In Stock<br>(click to see inventory)</th>
+                        <th>Price</th>
+                        <th>Coupon</th>
+                    </tr>
+                    <tr>
+                        <td><input name="selected" type="radio"></td>
+                        <td>0.7mi</td>
+                        <td>CVS</td>
+                        <td>3028 Clark Ave.</td>
+                        <td>(216) 351-1382</td>
+                        <td>(216) 351-1356</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>$20.25</td>
+                        <td>No</td>
+                    </tr>
+                    <tr>
+                        <td><input name="selected" type="radio"></td>
+                        <td>1.2mi</td>
+                        <td>Walgreen</td>
+                        <td>3138 Fulton Rd.</td>
+                        <td>(216) 462-7812</td>
+                        <td>(216) 462-7451</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>$18.13</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td><input name="selected" type="radio"></td>
+                        <td>1.6mi</td>
+                        <td>Rite-Aid</td>
+                        <td>3028 Denison Ave.</td>
+                        <td>(216) 589-6541</td>
+                        <td>(216) 589-6532</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>$19.89</td>
+                        <td>No</td>
+                    </tr>
+                    <tr class="btn-danger disabled">
+                        <td><input name="selected" type="radio" class="disabled"></td>
+                        <td>2.0mi</td>
+                        <td>Drug Mart</td>
+                        <td>3028 W.14th St.</td>
+                        <td>(216) 682-5296</td>
+                        <td>(216) 682-5214</td>
+                        <td>Yes</td>
+                        <td>No</td>
+                        <td>$17.53</td>
+                        <td>No</td>
+                    </tr>
+                    <tr>
+                        <td><input name="selected" type="radio"></td>
+                        <td>2.0mi</td>
+                        <td>Tony's Market</td>
+                        <td>2526 Clark Ave.</td>
+                        <td>(216) 782-4123</td>
+                        <td>(216) 782-4175</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>$19.62</td>
+                        <td>No</td>
+                    </tr>
+                </table>
+            </table>
+        </div>
     </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js" type="application/javascript"></script>
@@ -218,7 +313,7 @@
                 $("#auth-btn").hide();
             }, 5000);
         });
-        //*
+        
     });
 </script>
 </body>
