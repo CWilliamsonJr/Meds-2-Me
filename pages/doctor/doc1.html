@@ -180,7 +180,7 @@
                 <div class="col-sm-2">
                     <input type="text" maxlength="3" class="form-control" id="med-quanity">
                 </div>
-                <span id="auth-needed"  ">Prior Authorization needed: Yes <span role="button" id="auth-btn" class="btn btn-primary"> Click to authorize</span><span id="auth-complete"><i class="fa fa-check fa-2x" aria-hidden="true"></i>Authorize Complete!</span></span>
+                <span id="auth-needed">Prior Authorization needed: Yes <span role="button" id="auth-btn" class="btn btn-primary"> Click to authorize</span><span id="auth-complete"></span>
             </div>
         </form>
     </div>
@@ -191,6 +191,7 @@
         type="application/javascript"></script>
 <script src="../../scripts/script.js" type="application/javascript"></script>
 <script type="application/javascript">
+    //<i id="auth-check" class="fa fa-check fa-2x" aria-hidden="true"></i>Authorize Complete!
     $(function(){
         $("#add-med-list").chosen();
         $("#patient-list").chosen();
@@ -198,6 +199,7 @@
 
         $("#auth-btn").click(function(){
             $("#auth-complete").show();
+            $("#auth-btn").html("Submitting");
         });
         $("#add-med-list").change(function(){
             if($("#add-med-list").val() === "Tamiflu"){
@@ -209,6 +211,12 @@
         });
         $("#med-str").change(function(){
             $("#med-quanity-display").show();
+            $("#auth-check").hide();
+            $("#auth-complete").html("Pending...");
+            setTimeout(function(){
+                $("#auth-complete").html('<i id="auth-check" class="fa fa-check fa-2x" aria-hidden="true"></i>Authorize Complete!');
+                $("#auth-btn").hide();
+            }, 5000);
         });
         //*
     });
