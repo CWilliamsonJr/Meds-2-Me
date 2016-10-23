@@ -28,7 +28,7 @@
         display: none;
     }
 
-    #med-quanity {
+    .med-num {
         width: 4em;
     }
     #med-quanity-display {
@@ -54,8 +54,10 @@
 
     tr:nth-child(even) {
         background-color: #dddddd;
-
-
+    }
+    #area-pharmacies{
+        display:none;
+    }
 </style>
 <body>
 <nav class="navbar navbar-default">
@@ -72,7 +74,7 @@
 </nav>
 <div class="jumbotron">
     <div class="container">
-        <div class="h1 text-center">Doctor Patient View: Meds-2-Me</div>
+        <div class="h1 text-center">Doctor View - Patient Informtaion:<br> Meds-2-Me</div>
     </div>
 </div>
 <div class="container">
@@ -160,7 +162,7 @@
         <form class="form-horizontal add-med-form" method="post" action="#">
             <br>
             <div class="form-group col-sm-12 med-list" id="">
-                <label for="add-med-list" class="col-sm-2 control-label">Add Medication:</label>
+                <label for="add-med-list" class="col-sm-2 control-label">Add New Medication:</label>
                 <div class="col-sm-5 show-inline">
                     <select data-placeholder="Select a Medication" class="input-width" tabindex="2" class=""
                             id="add-med-list">
@@ -192,12 +194,38 @@
                     <span id="auth-needed"></span>
                 </div>
             </div>
-            <div class="form-group col-sm-12 med-list" id="med-quanity-display">
-                <label for="med-quanity" class="col-sm-2 control-label">Quanity:</label>
-                <div class="col-sm-2">
-                    <input type="text" maxlength="3" class="form-control" id="med-quanity">
+            <div id="med-quanity-display">
+                <div class="form-group col-sm-12 med-list" id="">
+                    <label for="med-quanity" class="col-sm-2 control-label">Quanity:</label>
+                    <div class="col-sm-2">
+                        <input type="text" maxlength="3" id="med-quanity" class="form-control med-num">
+                    </div>
+                    <span id="auth-needed">Prior Authorization needed: Yes <span role="button" id="auth-btn" class="btn btn-primary"> Click to authorize</span><span id="auth-complete"></span>
                 </div>
-                <span id="auth-needed">Prior Authorization needed: Yes <span role="button" id="auth-btn" class="btn btn-primary"> Click to authorize</span><span id="auth-complete"></span>
+                <div class="form-group col-sm-12 med-list" id="">
+                    <label for="Day Supply" class="col-sm-2 control-label">Day Supply:</label>
+                    <div class="col-sm-2">
+                        <input type="text" maxlength="3" class="form-control med-num" id="Day Supply">
+                    </div>
+                </div>
+                <div class="form-group col-sm-12 med-list" id="">
+                    <label for="med-refills" class="col-sm-2 control-label">Refills:</label>
+                    <div class="col-sm-2">
+                        <input type="text" maxlength="3" class="form-control med-num" id="med-refills">
+                    </div>
+                </div>
+                <div class="form-group col-sm-12 med-list" id="">
+                    <label for="med-daw" class="col-sm-2 control-label">DAW:</label>
+                    <div class="col-sm-2">
+                        <input type="text" maxlength="1" class="form-control med-num" id="med-daw">
+                    </div>
+                </div>
+                <div class="form-group col-sm-12 med-list" id="">
+                    <label for="med-sig" class="col-sm-2 control-label">Sig:</label>
+                    <div class="col-sm-2">
+                        <input type="text" class="form-control input-width" id="med-sig">
+                    </div>
+                </div>
             </div>
         </form>
         <div id="area-pharmacies" class="">
@@ -216,7 +244,7 @@
                         <th>Coupon</th>
                     </tr>
                     <tr>
-                        <td><input name="selected" type="radio"></td>
+                        <td><input class="pharm-choice" name="selected" type="radio"></td>
                         <td>0.7mi</td>
                         <td>CVS</td>
                         <td>3028 Clark Ave.</td>
@@ -228,7 +256,7 @@
                         <td>No</td>
                     </tr>
                     <tr>
-                        <td><input name="selected" type="radio"></td>
+                        <td><input class="pharm-choice"  name="selected" type="radio"></td>
                         <td>1.2mi</td>
                         <td>Walgreen</td>
                         <td>3138 Fulton Rd.</td>
@@ -240,7 +268,7 @@
                         <td>Yes</td>
                     </tr>
                     <tr>
-                        <td><input name="selected" type="radio"></td>
+                        <td><input class="pharm-choice"  name="selected" type="radio"></td>
                         <td>1.6mi</td>
                         <td>Rite-Aid</td>
                         <td>3028 Denison Ave.</td>
@@ -252,7 +280,7 @@
                         <td>No</td>
                     </tr>
                     <tr class="btn-danger disabled">
-                        <td><input name="selected" type="radio" class="disabled"></td>
+                        <td><input class="pharm-choice"  name="selected" type="radio" class="disabled" disabled></td>
                         <td>2.0mi</td>
                         <td>Drug Mart</td>
                         <td>3028 W.14th St.</td>
@@ -264,7 +292,7 @@
                         <td>No</td>
                     </tr>
                     <tr>
-                        <td><input name="selected" type="radio"></td>
+                        <td><input class="pharm-choice"  name="selected" type="radio"></td>
                         <td>2.0mi</td>
                         <td>Tony's Market</td>
                         <td>2526 Clark Ave.</td>
@@ -278,6 +306,43 @@
                 </table>
             </table>
         </div>
+    </div>
+</div>
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Review Perscription Order</h4>
+            </div>
+            <div class="modal-body">
+                <div class="text-center h2">Review Order</div>
+                <b>Name:</b> Jane Doe <br>
+                <b>DOB:</b> 11-06-1956 <br>
+                <b>Address:</b> 3057 Vega Ave Cleveland, OH 44113 <br>
+                <b>Insurance:</b> Medical Mutual <br>
+                <b>Diagnosis Code:</b> A00.0 ‑ B99.9; I00 ‑ I99.9 <br>
+                <b>Medication:</b> Tamiflu <br>
+                &nbsp;&nbsp;&nbsp;<b>Strength:</b> 30mg  <b>Quanity:</b>30 <b>Refills:</b>6 <br>
+                &nbsp;&nbsp;&nbsp;<b>Day Supply: </b>30 <b>DAW:</b> 1 <br>
+                &nbsp;&nbsp;&nbsp;<b>Sig:</b>Take once daily in the morning
+                <div class="h3 text-center">Pharmacy</div>
+                <b>Name:</b>CVS<br>
+                <b>Address:</b>3028 Clark Ave.
+                <b>Phone No:</b>(216) 351-1382 <b>Fax No:</b>(216) 351-1356 <br>
+                <b>ERT:</b> Yes <br>
+                <b>Price:</b>$20.25
+                <br><br>
+                <b>Physician Signature:</b> On File <b>Date:</b> 10/23/16
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Go Back</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" id="send-script">Send Order</button>
+
+            </div>
+        </div>
+        </p>
     </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js" type="application/javascript"></script>
@@ -295,6 +360,15 @@
         $("#auth-btn").click(function(){
             $("#auth-complete").show();
             $("#auth-btn").html("Submitting");
+            setTimeout(function(){
+                $("#auth-complete").html('<i id="auth-check" class="fa fa-check fa-2x" aria-hidden="true"></i>Authorize Complete!');
+                $("#auth-btn").hide();
+                $("#area-pharmacies").show();
+                $("#insurance-info").hide(2000,function(){
+                    $("#med-quanity-display").hide(2000);
+                });
+
+            }, 5000);
         });
         $("#add-med-list").change(function(){
             if($("#add-med-list").val() === "Tamiflu"){
@@ -308,12 +382,15 @@
             $("#med-quanity-display").show();
             $("#auth-check").hide();
             $("#auth-complete").html("Pending...");
-            setTimeout(function(){
-                $("#auth-complete").html('<i id="auth-check" class="fa fa-check fa-2x" aria-hidden="true"></i>Authorize Complete!');
-                $("#auth-btn").hide();
-            }, 5000);
         });
-        
+        $(".pharm-choice").change(function(){
+            $('#myModal').modal('show');
+        });
+        $("#send-script").click(function(){
+            setTimeout(function(){
+                alert("Perscription was sent successfully");
+            },4000);
+        });
     });
 </script>
 </body>
