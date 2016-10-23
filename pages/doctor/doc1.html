@@ -10,15 +10,35 @@
 
 </head>
 <style>
-    .med-list{
-        margin-left:-30px;
+    .med-list {
+        margin-left: -30px;
         margin-top: 20px:
     }
-    .show-inline{
+
+    .show-inline {
         display: inline;
     }
-    .add-med-form{
+
+    .add-med-form {
         margin-left: -20px;
+        margin-top: 35px;
+    }
+
+    #med-str-list {
+        display: none;
+    }
+
+    #med-quanity {
+        width: 4em;
+    }
+    #med-quanity-display {
+        display: none;
+    }
+    #auth-needed{
+        margin-left: -100px;
+    }
+    #auth-complete{
+        display:none;
     }
 </style>
 <body>
@@ -100,7 +120,8 @@
                     <div class="col-sm-12">
                         <div class="col-sm-6">
                             <b>Diagnosis Code:</b><br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;A00.0 ‑ B99.9: Certain infectious and parasitic diseases (A00-B99). <br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;A00.0 ‑ B99.9: Certain infectious and parasitic diseases (A00-B99).
+                            <br>
                             &nbsp;&nbsp;&nbsp;&nbsp;I00 ‑ I99.9: Diseases of the circulatory system (I00-I99).
                         </div>
                     </div>
@@ -122,9 +143,10 @@
         <form class="form-horizontal add-med-form" method="post" action="#">
             <br>
             <div class="form-group col-sm-12 med-list" id="">
-                <label for="new-med" class="col-sm-2 control-label">Add Medication:</label>
+                <label for="add-med-list" class="col-sm-2 control-label">Add Medication:</label>
                 <div class="col-sm-5 show-inline">
-                    <select data-placeholder="Select a Medication" class="input-width" tabindex="2" class="" id="add-med-list">
+                    <select data-placeholder="Select a Medication" class="input-width" tabindex="2" class=""
+                            id="add-med-list">
                         <option value=""></option>
                         <option value="Amlodipine">Amlodipine</option>
                         <option value="Amoxicillin">Amoxicillin</option>
@@ -134,28 +156,61 @@
                         <option value="Lipitor">Lipitor</option>
                         <option value="Lisinopril">Lisinopril</option>
                         <option value="Synthroid">Synthroid</option>
+                        <option value="Tamiflu">Tamiflu</option>
                         <option value="Vicodin">Vicodin</option>
                     </select>
                     <span id="auth-needed"></span>
                 </div>
+
+            </div>
+            <div class="form-group col-sm-12 med-list" id="med-str-list">
+                <label for="med-str" class="col-sm-2 control-label">Medicine Strength:</label>
+                <div class="col-sm-5 show-inline">
+                    <select class="input-width" class="" id="med-str">
+                        <option value=""></option>
+                        <option value="30mg">30mg</option>
+                        <option value="45mg">45mg</option>
+                        <option value="75mg">75mg</option>
+                    </select>
+                    <span id="auth-needed"></span>
+                </div>
+            </div>
+            <div class="form-group col-sm-12 med-list" id="med-quanity-display">
+                <label for="med-quanity" class="col-sm-2 control-label">Quanity:</label>
+                <div class="col-sm-2">
+                    <input type="text" maxlength="3" class="form-control" id="med-quanity">
+                </div>
+                <span id="auth-needed"  ">Prior Authorization needed: Yes <span role="button" id="auth-btn" class="btn btn-primary"> Click to authorize</span><span id="auth-complete"><i class="fa fa-check fa-2x" aria-hidden="true"></i>Authorize Complete!</span></span>
             </div>
         </form>
     </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js" type="application/javascript"></script>
 <script src="../../scripts/chosen.jquery.js" type="application/javascript"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="application/javascript"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        type="application/javascript"></script>
 <script src="../../scripts/script.js" type="application/javascript"></script>
 <script type="application/javascript">
     $(function(){
         $("#add-med-list").chosen();
         $("#patient-list").chosen();
         //$( "#add-med-list option:selected" ).text();
-        $("#add-med-list").click(function(){
-            if($( "#add-med-list option:selected" ).text()=== "Hydrocodone/APAP") {
-                $("#auth-needed").html("Prior Auth Needed");
+
+        $("#auth-btn").click(function(){
+            $("#auth-complete").show();
+        });
+        $("#add-med-list").change(function(){
+            if($("#add-med-list").val() === "Tamiflu"){
+                $("#med-str-list").show();
+            } else{
+                $("#med-str-list").hide();
+                $("#med-quanity-display").hide();
             }
-        })
+        });
+        $("#med-str").change(function(){
+            $("#med-quanity-display").show();
+        });
+        //*
     });
 </script>
 </body>
